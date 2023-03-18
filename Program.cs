@@ -5,7 +5,6 @@ namespace Application
 {
     class Program
     {
-        public static int boardSize = 25;
         static void Main(string[] args)
         {
             Game game = new Game();

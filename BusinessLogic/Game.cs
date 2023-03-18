@@ -15,9 +15,10 @@ namespace Bingo_52_25_Game_exercise.BusinessLogic
     {
         private Board board;
         private IBoardChecker boardChecker;
+        private readonly int boardSize = 25;
         public Game()
         {
-            board = Boardfactory.GenerateBoard(Program.boardSize);
+            board = Boardfactory.GenerateBoard(boardSize);
             boardChecker = new BoardChecker(board);
         }
 
