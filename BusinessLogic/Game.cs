@@ -18,7 +18,7 @@ namespace Bingo_52_25_Game_exercise.BusinessLogic
         private readonly int boardSize = 25;
         public Game()
         {
-            board = Boardfactory.GenerateBoard(boardSize); 
+            board = Boardfactory.GenerateBoard(boardSize);
             boardChecker = new BoardChecker(board);
         }
 
@@ -43,8 +43,10 @@ namespace Bingo_52_25_Game_exercise.BusinessLogic
 
         private bool FindNumber(int numberToCheck)
         {
-            foreach (Cell cell in board.Matrix) {
-                if (cell.Digit == numberToCheck) {
+            foreach (Cell cell in board.Matrix)
+            {
+                if (cell.Digit == numberToCheck)
+                {
                     cell.IsMarked = true;
                     return true;
                 }
@@ -52,7 +54,7 @@ namespace Bingo_52_25_Game_exercise.BusinessLogic
             return false;
         }
 
-        private bool CheckBingo() 
+        private bool CheckBingo()
         {
             // Check vertical, horizontal and diagonal line
             if (boardChecker.CheckVerticalLine() || boardChecker.CheckHorizontalLine() || boardChecker.CheckDiagonalLine())
@@ -62,32 +64,17 @@ namespace Bingo_52_25_Game_exercise.BusinessLogic
             return false;
         }
 
-        public void RunGame() {
+        public void RunGame()
+        {
             Console.WriteLine("Game started.");
             Console.WriteLine("Board generated!");
-            board.PrintBoard();
+            //board.PrintBoard();
 
             while (true)
             {
+                Console.SetCursorPosition(0, 2);
+                board.PrintBoard();
                 Console.WriteLine();
-                Console.WriteLine("Press space or any key to show next number");
-                Console.ReadKey(true);
-
-                // Generate next number
-                int nextNumber = GenerateNextNumber();
-                if (nextNumber == -1)
-                {
-                    Console.WriteLine("Game Over!");
-                    break;
-                }
-                Console.WriteLine($"Next number: {nextNumber}");
-
-                // Check if number is in the board
-                if (FindNumber(nextNumber))
-                {
-                    // Reprint the board
-                    board.PrintBoard();
-                }
 
                 // Do you win?
                 if (CheckBingo())
@@ -97,6 +84,23 @@ namespace Bingo_52_25_Game_exercise.BusinessLogic
                     Console.WriteLine("You win!");
                     break;
                 }
+
+                Console.WriteLine("Press space or any key to show next number");
+                Console.ReadKey(true);
+
+                // Generate next number
+                int nextNumber = GenerateNextNumber();
+                if (nextNumber == -1)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Game Over!");
+                    break;
+                }
+                Console.WriteLine($"Next number: {nextNumber}");
+
+                FindNumber(nextNumber);
+
+
             }
         }
     }

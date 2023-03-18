@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Bingo_52_25_Game_exercise.BusinessLogic
 {
-    internal class BoardChecker: IBoardChecker
+    internal class BoardChecker : IBoardChecker
     {
         private Board _board;
         public BoardChecker(Board board)
@@ -39,7 +39,7 @@ namespace Bingo_52_25_Game_exercise.BusinessLogic
                 var allValid = IsAllMarked(fiveitems);
                 if (allValid)
                 {
-                     return true;
+                    return true;
                 }
             }
             return false;
@@ -53,7 +53,7 @@ namespace Bingo_52_25_Game_exercise.BusinessLogic
             return IsAllMarked(rightDiagonal) || IsAllMarked(leftDiagonal);
         }
 
-        private bool IsAllMarked(IEnumerable<Cell> itemsToCheck) 
+        private bool IsAllMarked(IEnumerable<Cell> itemsToCheck)
         {
             var allValid = itemsToCheck.Any() && itemsToCheck.All(item => item.IsMarked);
             if (allValid)

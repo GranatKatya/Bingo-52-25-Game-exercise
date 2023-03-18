@@ -27,13 +27,13 @@ namespace Bingo_52_25_Game_exercise.Models
                 }
                 if (cell.IsMarked)
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write($" {cell.Digit} ");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write($"\t{cell.Digit}");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
                 else
                 {
-                    Console.Write($" {cell.Digit} ");
+                    Console.Write($"\t{cell.Digit}");
                 }
                 count++;
             }
