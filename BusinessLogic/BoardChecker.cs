@@ -39,7 +39,7 @@ namespace Bingo_52_25_Game_exercise.BusinessLogic
                 var allValid = IsAllMarked(fiveitems);
                 if (allValid)
                 {
-                    return true;
+                     return true;
                 }
             }
             return false;
